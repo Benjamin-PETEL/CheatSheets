@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/Benjamin-PETEL/CheatSheets/issues"
   },
-  "homepage": "https://github.com/Benjamin-PETEL/CheatSheets#readme"
+  "homepage": "https://github.com/Benjamin-PETEL/CheatSheets#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
