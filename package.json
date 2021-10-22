@@ -1,0 +1,17 @@
+{
+  "name": "cheatsheets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benjamin-PETEL/CheatSheets.git"
+  },
+  "author": "Benjamin PETEL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Benjamin-PETEL/CheatSheets/issues"
+  },
+  "homepage": "https://github.com/Benjamin-PETEL/CheatSheets#readme"
+}
