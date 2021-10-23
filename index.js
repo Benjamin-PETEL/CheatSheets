@@ -14,26 +14,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 // TEMP
 const articles = [
     {
-        'title': '1',
-        'content': 'detail article 1'
+        'title': 'git',
+        'content': 'Mon article sur git'
     },
     {
-        'title': '2',
-        'content': 'detail article 2'
+        'title': 'node',
+        'content': 'Mon article sur node'
     },
     {
-        'title': '3',
-        'content': 'detail article 3'
+        'title': 'shell',
+        'content': 'Mon article shell linux'
     },
 ]
 
 // Routing
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {'articles': articles});
 });
 articles.forEach(article => {
     app.get('/'+article.title, (req, res) => {
-        res.render('article', article);
+        res.render('article', {'articles': articles, 'article': article});
     })
 });
 

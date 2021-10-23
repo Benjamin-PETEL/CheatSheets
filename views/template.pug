@@ -1,11 +1,23 @@
 doctype html 
+
 html(lang="en")
     head 
         title My cheat sheets
         link(rel='stylesheet', type='text/css', href='/css/style.css')
     body
+        //- NAVBAR
+        nav 
+            a(href="/") home
+            ul 
+            each article in articles
+                li
+                    a(href=article.title)= article.title 
+
+        //- MAIN CONTENT
         block content
         br
         hr
+
+        //- FOOTER
         footer 
             p made with love 
