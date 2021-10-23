@@ -27,14 +27,21 @@ const articles = [
     },
 ]
 
-// Routing
+// ROUTING
+// Home route
 app.get('/', (req, res) => {
     res.render('index', {'articles': articles});
 });
+// Articles route
 articles.forEach(article => {
     app.get('/'+article.title, (req, res) => {
         res.render('article', {'articles': articles, 'article': article});
     })
+});
+// 404 route
+app.use((req, res) => {
+    res.status(400).render('404');
+    // res.render('404')
 });
 
 app.listen(3000, () => {
