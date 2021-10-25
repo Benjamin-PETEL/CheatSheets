@@ -3,11 +3,12 @@ doctype html
 html(lang="en")
     head 
         title My cheat sheets
-        link(rel='stylesheet', type='text/css', href='/css/style.css')
-    body
+        meta(charset="UTF-8")
+        link(rel='stylesheet', type='text/css', href='/style/style.css')
+    body.bg-gray-400
         //- NAVBAR
         nav 
-            a(href="/") home
+            a.text-6(href="/") home
             ul 
             each article in articles
                 li

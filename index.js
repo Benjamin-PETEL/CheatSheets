@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 
 // Templating
-app.set('views', './views');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Style
@@ -40,10 +40,10 @@ articles.forEach(article => {
 });
 // 404 route
 app.use((req, res) => {
-    res.status(400).render('404');
+    res.status(400).render('404', {'articles': articles});
     // res.render('404')
 });
-
+   
 app.listen(3000, () => {
     console.log('express running on port 3000');
 });
