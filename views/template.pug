@@ -5,13 +5,14 @@ html(lang="en")
         title My cheat sheets
         meta(charset="UTF-8")
         link(rel='stylesheet', type='text/css', href='/style/style.css')
-    body.bg-gray-400
+    body.bg-green-50
         //- NAVBAR
-        nav 
-            a.text-6(href="/") home
+        nav.flex.bg-green-500.text-3xl.text-white.p-3.list-none 
+            a.text-6(href="/")
+                img.h-8(src='/img/home.svg')
             ul 
             each article in articles
-                li
+                li.ml-4
                     a(href=article.title)= article.title 
 
         //- MAIN CONTENT
@@ -20,5 +21,5 @@ html(lang="en")
         hr
 
         //- FOOTER
-        footer 
+        footer.bg-green-500.p-3.text-white.text-center 
             p made with love 
