@@ -5,15 +5,22 @@ html(lang="en")
         title My cheat sheets
         meta(charset="UTF-8")
         link(rel='stylesheet', type='text/css', href='/style/style.css')
+        script(src="/js/script.js" defer) 
     body.bg-green-50
         //- NAVBAR
-        nav.flex.bg-green-500.text-3xl.text-white.p-3.list-none 
-            a.text-6(href="/")
-                img.h-8(src='/img/home.svg')
-            ul 
-            each article in articles
-                li.ml-4
-                    a(href=article.title)= article.title 
+        nav.flex.px-4.justify-between.items-center.w-full.bg-green-500.text-3xl.text-white.h-16.list-none
+            div.flex 
+                a.text-6(href="/")
+                    img.h-8(src='/img/home.svg')
+                ul(class="flex flex-col text-center bg-green-500 bg-opacity-75 z-10 fixed -right-full w-full top-16 md:flex-row md:static" id="menu") 
+                    each article in articles
+                        li.ml-4
+                            a(href=article.title)= article.title 
+            //- Hamburger
+            div(class="cursor-pointer md:hidden" id="hamburger")
+                span.bar
+                span.bar
+                span.bar
 
         //- MAIN CONTENT
         block content
