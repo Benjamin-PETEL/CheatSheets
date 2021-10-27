@@ -15,7 +15,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const articles = [
     {
         'title': 'git',
-        'content': 'Mon article sur git'
+        'content': '# Mon titre git',
+        'location': '../article/git.md'
     },
     {
         'title': 'node',

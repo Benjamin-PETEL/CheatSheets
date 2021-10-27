@@ -93,7 +93,7 @@ Checkout a branch
 `git clone urlOfTheRemoteRepository`
 
 ## alias: 
-git config --global alias.view "log --all --decorate --oneline --graph" 
+`git config --global alias.view "log --all --decorate --oneline --graph"`
 
 ## stash: 
 `git stash`: to put aside some code  
