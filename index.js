@@ -6,7 +6,7 @@ const app = express();
 
 // Templating
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 // Style
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,19 +31,20 @@ const articles = [
 // ROUTING
 // Home route
 app.get('/', (req, res) => {
-    res.render('index', {'articles': articles});
+    // res.render('index', {'articles': articles});
+    res.render('index');
 });
 // Articles route
-articles.forEach(article => {
-    app.get('/'+article.title, (req, res) => {
-        res.render('article', {'articles': articles, 'article': article});
-    })
-});
+// articles.forEach(article => {
+//     app.get('/'+article.title, (req, res) => {
+//         res.render('article', {'articles': articles, 'article': article});
+//     })
+// });
 // 404 route
-app.use((req, res) => {
-    res.status(400).render('404', {'articles': articles});
-    // res.render('404')
-});
+// app.use((req, res) => {
+//     res.status(400).render('404', {'articles': articles});
+//     // res.render('404')
+// });
    
 app.listen(3000, () => {
     console.log('express running on port 3000');
