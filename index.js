@@ -1,5 +1,7 @@
 const express = require('express');
+const marked = require('marked');
 const path = require('path');
+const fs = require('fs');
 
 // Init app
 const app = express();
@@ -15,16 +17,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 const articles = [
     {
         'title': 'Git',
-        'content': 'Mon titre git',
-        'location': '../article/git.md'
+        'location': '/articles/git.md'
     },
     {
         'title': 'Node',
-        'content': 'Mon article sur node'
+        'location': '/articles/node.md'
     },
     {
         'title': 'Shell',
-        'content': 'Mon article shell linux'
+        'location': '/articles/shell.md'
     },
 ]
 
@@ -36,7 +37,15 @@ app.get('/', (req, res) => {
 // Articles route
 articles.forEach(article => {
     app.get('/'+article.title, (req, res) => {
-        res.render('article', {'article': article, 'articles': articles});
+        const stream = fs.createReadStream(path.join(__dirname, article.location), 'utf8');
+        stream.on('error', (error) => {
+            console.log(error);
+            res.redirect('/');
+        });
+        stream.on('data', (data) => {
+            article.content = marked(data, {'headerIds':false });
+            res.render('article', {'article': article, 'articles': articles});
+        });
     })
 });
 // 404 route
