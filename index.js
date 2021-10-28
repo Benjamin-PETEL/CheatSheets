@@ -14,16 +14,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // TEMP
 const articles = [
     {
-        'title': 'git',
-        'content': '# Mon titre git',
+        'title': 'Git',
+        'content': 'Mon titre git',
         'location': '../article/git.md'
     },
     {
-        'title': 'node',
+        'title': 'Node',
         'content': 'Mon article sur node'
     },
     {
-        'title': 'shell',
+        'title': 'Shell',
         'content': 'Mon article shell linux'
     },
 ]
@@ -35,16 +35,17 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 // Articles route
-// articles.forEach(article => {
-//     app.get('/'+article.title, (req, res) => {
-//         res.render('article', {'articles': articles, 'article': article});
-//     })
-// });
+articles.forEach(article => {
+    app.get('/'+article.title, (req, res) => {
+        // res.render('article', {'articles': articles, 'article': article});
+        res.render('article', {'article': article});
+    })
+});
 // 404 route
-// app.use((req, res) => {
-//     res.status(400).render('404', {'articles': articles});
-//     // res.render('404')
-// });
+app.use((req, res) => {
+    // res.status(400).render('404', {'articles': articles});
+    res.status(400).render('404');
+});
    
 app.listen(3000, () => {
     console.log('express running on port 3000');
