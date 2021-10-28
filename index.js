@@ -31,20 +31,17 @@ const articles = [
 // ROUTING
 // Home route
 app.get('/', (req, res) => {
-    // res.render('index', {'articles': articles});
-    res.render('index');
+    res.render('index', {'articles': articles});
 });
 // Articles route
 articles.forEach(article => {
     app.get('/'+article.title, (req, res) => {
-        // res.render('article', {'articles': articles, 'article': article});
-        res.render('article', {'article': article});
+        res.render('article', {'article': article, 'articles': articles});
     })
 });
 // 404 route
 app.use((req, res) => {
-    // res.status(400).render('404', {'articles': articles});
-    res.status(400).render('404');
+    res.status(400).render('404', {'articles': articles});
 });
    
 app.listen(3000, () => {
