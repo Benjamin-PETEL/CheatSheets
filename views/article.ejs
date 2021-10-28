@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel='stylesheet', type='text/css', href='/style/style.css')>
-    <script src="/js/script.js" defer)></script>
+    <script src="/js/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= article.title %></title>
 </head>
 <body>
     <%- include('./_navbar') %>
-    <h1><%= article.content %></h1>
+    <%- article.content %>
     <%- include('./_footer') %>
 </body>
 </html>
