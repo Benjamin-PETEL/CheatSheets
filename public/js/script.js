@@ -24,4 +24,16 @@ h1s.forEach((h1) => {
 const h2s = document.querySelectorAll("h2");
 h2s.forEach(h2 => {
     h2.classList.add("text-xl", "font-medium", "underline", "mt-4")
-})
+});
+
+// H3
+const h3s = document.querySelectorAll("h3");
+h3s.forEach(h3 => {
+    h3.classList.add("text-l", "font-medium", "underline", "mt-4")
+});
+
+// PRE
+const pres = document.querySelectorAll("pre");
+pres.forEach(pre => {
+    pre.classList.add("m-3", "p-3", "bg-yellow-300", "font-mono")
+});
