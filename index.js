@@ -23,20 +23,29 @@ const articles = [
         'title': 'PHP',
         'location': '/articles/php.md'
     },
-    {
-        'title': 'Node',
-        'location': '/articles/node.md'
-    },
-    {
-        'title': 'Shell',
-        'location': '/articles/shell.md'
-    },
+    // {
+    //     'title': 'Node',
+    //     'location': '/articles/node.md'
+    // },
+    // {
+    //     'title': 'Shell',
+    //     'location': '/articles/shell.md'
+    // },
 ]
 
 // ROUTING
 // Home route
 app.get('/', (req, res) => {
-    res.render('index', {'articles': articles});
+    const stream = fs.createReadStream(path.join(__dirname, 'articles/home.md'), 'utf8');
+    stream.on('error', (error) => {
+        console.log(error);
+        res.status(400).render('404', {'articles': articles});
+    });
+    stream.on('data', (data) => {
+        let home = {};
+        home.content = marked(data, {'headerIds':false });
+        res.render('index', {'home': home, 'articles': articles});
+    })
 });
 // Articles route
 articles.forEach(article => {
