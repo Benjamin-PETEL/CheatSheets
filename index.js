@@ -20,6 +20,10 @@ const articles = [
         'location': '/articles/git.md'
     },
     {
+        'title': 'PHP',
+        'location': '/articles/php.md'
+    },
+    {
         'title': 'Node',
         'location': '/articles/node.md'
     },
