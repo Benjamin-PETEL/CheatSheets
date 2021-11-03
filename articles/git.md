@@ -63,7 +63,7 @@ Checkout a branch
 
 ## branch: 
 `git branch`: list all the branch  
-`git branch myBranchName`: create a new branch
+`git branch myBranchName`: create a new branch  
 `git branch -d myBranch`: delete the branch  
 `git branch -r`: list the remote branch
 
