@@ -25,13 +25,13 @@ h1s.forEach((h1) => {
 // H2
 const h2s = main.querySelectorAll("h2");
 h2s.forEach(h2 => {
-    h2.classList.add("text-xl", "font-medium", "underline", "mt-4")
+    h2.classList.add("text-xl", "font-medium", "underline", "my-4")
 });
 
 // H3
 const h3s = main.querySelectorAll("h3");
 h3s.forEach(h3 => {
-    h3.classList.add("text-l", "font-medium", "underline", "mt-4")
+    h3.classList.add("text-l", "font-medium", "underline", "my-4")
 });
 
 // PRE

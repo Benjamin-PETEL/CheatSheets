@@ -23,14 +23,18 @@ const articles = [
         'title': 'PHP',
         'location': '/articles/php.md'
     },
-    // {
-    //     'title': 'Node',
-    //     'location': '/articles/node.md'
-    // },
-    // {
-    //     'title': 'Shell',
-    //     'location': '/articles/shell.md'
-    // },
+    {
+        'title': 'linux',
+        'location': '/articles/linux.md'
+    },
+    {
+        'title': 'nginx',
+        'location': '/articles/nginx.md'
+    },
+    {
+        'title': 'node',
+        'location': '/articles/node.md'
+    }
 ]
 
 // ROUTING
