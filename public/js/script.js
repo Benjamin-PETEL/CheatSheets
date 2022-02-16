@@ -55,19 +55,19 @@ const main = document.querySelector("main");
 // H1
 const h1s = main.querySelectorAll("h1");
 h1s.forEach((h1) => {
-    h1.classList.add("text-4xl", "font-bold", "text-dark", "text-center");
+    h1.classList.add("text-4xl", "font-bold", "text-dark", "dark:text-white", "text-center");
 });
 
 // H2
 const h2s = main.querySelectorAll("h2");
 h2s.forEach(h2 => {
-    h2.classList.add("text-xl", "font-medium", "text-dark", "underline", "my-4")
+    h2.classList.add("text-xl", "font-medium", "text-dark", "dark:text-white", "underline", "my-4")
 });
 
 // H3
 const h3s = main.querySelectorAll("h3");
 h3s.forEach(h3 => {
-    h3.classList.add("text-l", "font-medium", "text-dark", "underline", "my-4")
+    h3.classList.add("text-l", "font-medium", "text-dark", "dark:text-white", "underline", "my-4")
 });
 
 // PRE
