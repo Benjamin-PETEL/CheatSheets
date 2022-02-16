@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./views/**/*.pug'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media',
   theme: {
     extend: {
       minHeight: {
