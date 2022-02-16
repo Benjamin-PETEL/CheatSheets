@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./views/**/*.pug'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {
       minHeight: {
@@ -9,7 +9,7 @@ module.exports = {
       colors:{
         transparent: 'transparent',
         current: 'current',
-        dark: '#0F0002',
+        dark: '#0A0001',
         grey: '#381E21',
         main: '#640211',
         pink: '#F8D4DA',
