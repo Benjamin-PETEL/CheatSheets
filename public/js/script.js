@@ -73,8 +73,15 @@ h3s.forEach(h3 => {
 // PRE
 const pres = main.querySelectorAll("pre");
 pres.forEach(pre => {
-    pre.classList.add("m-3", "p-3", "bg-dark", "text-white", "font-mono")
+    pre.classList.add("m-3", "p-3", "bg-dark", "dark:bg-grey", "text-white", "font-mono")
 });
+
+// P
+const ps = main.querySelectorAll("p");
+ps.forEach(p => {
+    p.classList.add("text-dark", "dark:text-white")
+});
+
 
 // A
 const as = main.querySelectorAll("a");
@@ -85,7 +92,7 @@ as.forEach(a => {
 // OL
 const ols = main.querySelectorAll("ol");
 ols.forEach(ol => {
-    ol.classList.add("list-inside", "list-decimal", "ml-4");
+    ol.classList.add("list-inside", "list-decimal", "text-dark", "dark:text-white", "ml-4");
 });
 
 // UL
