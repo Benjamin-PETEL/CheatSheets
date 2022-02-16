@@ -55,26 +55,33 @@ const main = document.querySelector("main");
 // H1
 const h1s = main.querySelectorAll("h1");
 h1s.forEach((h1) => {
-    h1.classList.add("text-4xl", "font-bold", "text-dark", "text-center");
+    h1.classList.add("text-4xl", "font-bold", "text-dark", "dark:text-white", "text-center");
 });
 
 // H2
 const h2s = main.querySelectorAll("h2");
 h2s.forEach(h2 => {
-    h2.classList.add("text-xl", "font-medium", "text-dark", "underline", "my-4")
+    h2.classList.add("text-xl", "font-medium", "text-dark", "dark:text-white", "underline", "my-4")
 });
 
 // H3
 const h3s = main.querySelectorAll("h3");
 h3s.forEach(h3 => {
-    h3.classList.add("text-l", "font-medium", "text-dark", "underline", "my-4")
+    h3.classList.add("text-l", "font-medium", "text-dark", "dark:text-white", "underline", "my-4")
 });
 
 // PRE
 const pres = main.querySelectorAll("pre");
 pres.forEach(pre => {
-    pre.classList.add("m-3", "p-3", "bg-dark", "text-white", "font-mono")
+    pre.classList.add("m-3", "p-3", "bg-dark", "dark:bg-grey", "text-white", "font-mono")
 });
+
+// P
+const ps = main.querySelectorAll("p");
+ps.forEach(p => {
+    p.classList.add("text-dark", "dark:text-white")
+});
+
 
 // A
 const as = main.querySelectorAll("a");
@@ -85,7 +92,7 @@ as.forEach(a => {
 // OL
 const ols = main.querySelectorAll("ol");
 ols.forEach(ol => {
-    ol.classList.add("list-inside", "list-decimal", "ml-4");
+    ol.classList.add("list-inside", "list-decimal", "text-dark", "dark:text-white", "ml-4");
 });
 
 // UL
