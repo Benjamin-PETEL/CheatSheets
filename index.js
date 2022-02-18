@@ -24,6 +24,10 @@ const articles = [
         'location': '/articles/php.md'
     },
     {
+        'title': 'Node',
+        'location': '/articles/node.md'
+    },
+    {
         'title': 'about',
         'location': '/articles/about.md'
     }
@@ -43,7 +47,7 @@ articles.forEach(article => {
             res.redirect('/');
         });
         stream.on('data', (data) => {
-            article.content = marked(data, {'headerIds':false });
+            article.content = marked.parse(data, {'headerIds':false });
             res.render('article', {'article': article, 'articles': articles});
         });
     })
