@@ -12,10 +12,17 @@
 </head>
 <body>
     <%- include('./_navbar') %>
-    <main class="flex justify-center p-2 sm:p-8 bg-white dark:bg-dark">
-        <article class="w-full md:max-w-screen-lg bg-opacity-50 p-2 sm:p-8">
-            <%- article.content %>
-        </article>
+    <main class="bg-white dark:bg-dark">
+        <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 md:px-8">
+            <div class="block fixed overflow-y-auto">
+                <nav class="flex flex-col relative" id="summary">
+                    <h1 class="text-dark dark:text-white text-3xl mb-4">Summary</h1>
+                </nav>
+            </div>
+            <article class="overflow-auto ml-56 pl-12 text-dark dark:text-white scroll-smooth border-l border-dark dark:border-white">
+                <%- article.content %>
+            </article>
+        </div>
     </main>
     <%- include('./_footer') %>
 </body>

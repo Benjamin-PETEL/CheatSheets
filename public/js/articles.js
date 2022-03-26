@@ -1,58 +1,86 @@
-// --------------------- Style -----------------------
+// ------------------- Variables ---------------------
+const article = document.querySelector("article");
 
-const main = document.querySelector("main");
+createSummary();
+applyStyle();
 
-// H1
-const h1s = main.querySelectorAll("h1");
-h1s.forEach((h1) => {
-    h1.classList.add("text-3xl", "sm:text-5xl", "font-bold", "text-dark", "dark:text-white", "text-center", "mb-12");
-});
+// ------------------- Functions ---------------------
+function createSummary(){
+    const summary = document.querySelector("#summary");
+    titles = getTitles();
+    titles.forEach(title => {
+        link = document.createElement("a");
+        link.textContent = title;
+        link.href = "#"+title;
+        link.classList.add("text-dark", "dark:text-white", "text-xl", "ml-4");
+        summary.appendChild(link);
+    });
+}
 
-// H2
-const h2s = main.querySelectorAll("h2");
-h2s.forEach(h2 => {
-    h2.classList.add("text-xl", "sm:text-3xl", "font-medium", "text-dark", "dark:text-white", "underline", "mb-4", "mt-9")
-});
+function getTitles(){
+    const h2s = article.querySelectorAll("h2");
+    let titles = [];
+    h2s.forEach(h2 => {
+        const title = h2.textContent.split(":")[0];
+        titles.push(title);
+        h2.id = title;
+    });
+    return titles;
+}
 
-// H3
-const h3s = main.querySelectorAll("h3");
-h3s.forEach(h3 => {
-    h3.classList.add("text-l", "sm:text-2xl", "font-medium", "text-dark", "dark:text-white", "underline", "mb-2", "mt-6", "ml-6")
-});
+function applyStyle(){
+    const h1s = article.querySelectorAll("h1");
+    const h2s = article.querySelectorAll("h2");
+    const h3s = article.querySelectorAll("h3");
+    const pres = article.querySelectorAll("pre");
+    const ps = article.querySelectorAll("p");
+    const as = article.querySelectorAll("a");
+    const ols = article.querySelectorAll("ol");
+    const uls = article.querySelectorAll("ul");
+    const imgs = article.querySelectorAll("img");
+       
+    // H1
+    h1s.forEach((h1) => {
+        h1.classList.add("text-3xl", "sm:text-5xl", "font-bold", "text-center", "mb-12");
+    });
 
-// PRE
-const pres = main.querySelectorAll("pre");
-pres.forEach(pre => {
-    pre.classList.add("ml-6", "mb-3", "p-2", "bg-dark", "dark:bg-grey", "text-white", "font-mono")
-});
+    // H2
+    h2s.forEach(h2 => {
+        h2.classList.add("text-xl", "sm:text-3xl", "font-medium", "underline", "mb-4", "mt-9", "scroll-mt-24")
+    });
 
-// P
-const ps = main.querySelectorAll("p");
-ps.forEach(p => {
-    p.classList.add("text-dark", "dark:text-white", "ml-6", "mb-3")
-});
+    // H3
+    h3s.forEach(h3 => {
+        h3.classList.add("text-l", "sm:text-2xl", "font-medium", "underline", "mb-2", "mt-6", "ml-6")
+    });
 
+    // PRE
+    pres.forEach(pre => {
+        pre.classList.add("ml-6", "mb-3", "p-2", "bg-dark", "dark:bg-grey", "text-white", "font-mono")
+    });
 
-// A
-const as = main.querySelectorAll("a");
-as.forEach(a => {
-    a.classList.add("underline", "text-blue-700", "hover:text-blue-900")
-});
+    // P
+    ps.forEach(p => {
+        p.classList.add("ml-6", "mb-3")
+    });
 
-// OL
-const ols = main.querySelectorAll("ol");
-ols.forEach(ol => {
-    ol.classList.add("list-inside", "list-decimal", "text-dark", "dark:text-white", "ml-4");
-});
+    // A
+    as.forEach(a => {
+        a.classList.add("underline", "text-blue-700", "hover:text-blue-900")
+    });
 
-// UL
-const uls = main.querySelectorAll("ul");
-uls.forEach(ul => {
-    ul.classList.add("list-inside", "list-disc", "ml-4");
-});
+    // OL
+    ols.forEach(ol => {
+        ol.classList.add("list-inside", "list-decimal", "ml-4");
+    });
 
-// IMG
-const imgs = main.querySelectorAll("img");
-imgs.forEach(img => {
-    img.classList.add("w-52", "mx-auto", "mt-12");
-});
+    // UL
+    uls.forEach(ul => {
+        ul.classList.add("list-inside", "list-disc", "ml-4");
+    });
+
+    // IMG
+    imgs.forEach(img => {
+        img.classList.add("w-52", "mx-auto", "mt-12");
+    });
+}
