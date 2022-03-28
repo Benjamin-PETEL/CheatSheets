@@ -1,19 +1,22 @@
 // ------------------- Variables ---------------------
 const article = document.querySelector("article");
+const navSummary = document.querySelector("#navSummary");
+const summary = document.querySelector("#summary");
 
 createSummary();
 applyStyle();
+loadSummaryButton();
 
 // ------------------- Functions ---------------------
 function createSummary(){
-    const summary = document.querySelector("#summary");
     titles = getTitles();
     titles.forEach(title => {
         link = document.createElement("a");
         link.textContent = title;
         link.href = "#"+title;
-        link.classList.add("text-dark", "dark:text-white", "text-xl", "ml-4");
-        summary.appendChild(link);
+        link.classList.add("text-xl", "ml-4");
+        navSummary.appendChild(link);
+        link.addEventListener('click', toggleSummary);
     });
 }
 
@@ -56,7 +59,7 @@ function applyStyle(){
 
     // PRE
     pres.forEach(pre => {
-        pre.classList.add("ml-6", "mb-3", "p-2", "bg-dark", "dark:bg-grey", "text-white", "font-mono")
+        pre.classList.add("ml-6", "mb-3", "p-2", "bg-grey", "text-white", "font-mono")
     });
 
     // P
@@ -83,4 +86,16 @@ function applyStyle(){
     imgs.forEach(img => {
         img.classList.add("w-52", "mx-auto", "mt-12");
     });
+}
+
+function loadSummaryButton(){
+    const summaryButton = document.querySelector("#summaryButton");
+    summaryButton.addEventListener('click', toggleSummary);
+}
+
+function toggleSummary(){
+    summary.classList.toggle("top-20");
+    summary.classList.toggle("left-8");
+    summary.classList.toggle("-left-full");
+    summary.classList.toggle("top-full");
 }
