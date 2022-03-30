@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel='stylesheet', type='text/css', href='/style/style.css')>
-    <script src="/js/script.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/articles.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/icon_cheatsheets.webp" type="image/x-icon">
     <title><%= article.title %></title>
 </head>
 <body>
     <%- include('./_navbar') %>
-    <main class="flex justify-center p-2 sm:p-8 bg-white dark:bg-dark">
-        <article class="w-full md:max-w-screen-lg bg-opacity-50 p-2 sm:p-8">
-            <%- article.content %>
-        </article>
+    <main class="bg-white dark:bg-dark text-dark dark:text-white ">
+        <div class="max-w-6xl mx-auto py-8 px-4 sm:px-6 md:px-8">
+            <div class="bg-main bg-opacity-95 fixed p-6 w-8/12 h-4/6 overflow-auto -left-full top-full transition-all duration-250 rounded-lg
+                        md:block md:bg-white md:dark:bg-dark md:left-auto md:top-auto md:w-fit md:transition-none" 
+                        id="summary">
+                <nav class="flex flex-col relative" id="navSummary">
+                    <h1 class="text-3xl mb-2 md:mb-4">Summary</h1>
+                </nav>
+            </div>
+            <article class="overflow-auto md:ml-64 md:pl-12 md:border-l border-dark dark:border-white">
+                <%- article.content %>
+            </article>
+        </div>
     </main>
+    <%- include('./_summaryButton') %>
     <%- include('./_footer') %>
 </body>
 </html>
