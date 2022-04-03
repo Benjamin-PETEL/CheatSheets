@@ -36,7 +36,7 @@ const articles = [
         'title': 'about',
         'location': '/articles/about.md'
     }
-]
+];
 
 // ROUTING
 // Home route
