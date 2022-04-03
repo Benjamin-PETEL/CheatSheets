@@ -4,7 +4,6 @@ const express = require('express');
 const marked = require('marked');
 const path = require('path');
 const fs = require('fs');
-const { info } = require('console');
 const exec = require('child_process').exec;
 const repo = "/var/www/CheatSheets";
 const crypto = require('crypto');
