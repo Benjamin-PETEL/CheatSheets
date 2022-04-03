@@ -60,23 +60,25 @@ articles.forEach(article => {
 // Webhook CD route
 app.post('/webhook', (req, res) => {
     console.info("webhook");
-    let signature = "sha256=" + crypto.createHmac('sha256', process.env.WEBHOOK_SECRET)
-                                    .update(chunk.toString())
-                                    .digest('hex');
-
-    if(req.headers['X-Hub-Signature-256'] === signature){
-        console.info("webhook signature checked, now pulling");
-        exec('echo webhook Cheatsheets');
-        exec('cd ' + repo + ' && git pull');
-        res.status(200).end();
-        console.info("npm install");
-        exec('npm install');
-        console.info("Restarting app");
-        exec('pm2 restart index.js');
-    } else {
-        console.error("could not verify webhook secret");
-        res.status(500).end();
-    }
+    req.on('data', chunk => {
+        let signature = "sha256=" + crypto.createHmac('sha256', process.env.WEBHOOK_SECRET)
+                                        .update(chunk.toString())
+                                        .digest('hex');
+    
+        if(req.headers['X-Hub-Signature-256'] === signature){
+            console.info("webhook signature checked, now pulling");
+            exec('echo webhook Cheatsheets');
+            exec('cd ' + repo + ' && git pull');
+            res.status(200).end();
+            console.info("npm install");
+            exec('npm install');
+            console.info("Restarting app");
+            exec('pm2 restart index.js');
+        } else {
+            console.error("could not verify webhook secret");
+            res.status(500).end();
+        }
+    });
 });
 // 404 route
 app.use((req, res) => {
