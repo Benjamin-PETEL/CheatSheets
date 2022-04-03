@@ -68,7 +68,7 @@ app.post('/webhook', (req, res) => {
         console.info("webhook signature checked, now pulling");
         exec('echo webhook Cheatsheets');
         exec('cd ' + repo + ' && git pull');
-        res.status(500).end();
+        res.status(200).end();
         console.info("npm install");
         exec('npm install');
         console.info("Restarting app");
