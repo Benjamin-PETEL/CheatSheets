@@ -1,9 +1,12 @@
+require('dotenv').config;
+
 const express = require('express');
 const marked = require('marked');
 const path = require('path');
 const fs = require('fs');
+const { info } = require('console');
 const exec = require('child_process').exec;
-const repo = "/var/www/CheatSheets"
+const repo = "/var/www/CheatSheets";
 
 // Init app
 const app = express();
@@ -57,9 +60,23 @@ articles.forEach(article => {
 // Webhook CD route
 app.post('/webhook', (req, res) => {
     console.info("webhook");
-    exec('echo webhook Cheatsheets');
-    exec('cd ' + repo + ' && git pull');
-    res.end();
+    let signature = "sha256=" + crypto.createHmac('sha256', process.env.WEBHOOK_SECRET)
+                                    .update(chunk.toString())
+                                    .digest('hex');
+
+    if(req.headers['X-Hub-Signature-256'] === signature){
+        console.info("webhook signature checked, now pulling");
+        exec('echo webhook Cheatsheets');
+        exec('cd ' + repo + ' && git pull');
+        res.status(500).end();
+        console.info("npm install");
+        exec('npm install');
+        console.info("Restarting app");
+        exec('pm2 restart index.js');
+    } else {
+        console.error("could not verify webhook secret");
+        res.status(500).end();
+    }
 });
 // 404 route
 app.use((req, res) => {
