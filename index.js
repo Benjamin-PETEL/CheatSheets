@@ -7,6 +7,7 @@ const fs = require('fs');
 const { info } = require('console');
 const exec = require('child_process').exec;
 const repo = "/var/www/CheatSheets";
+const crypto = require('crypto');
 
 // Init app
 const app = express();
