@@ -56,8 +56,10 @@ articles.forEach(article => {
 });
 // Webhook CD route
 app.post('/webhook', (req, res) => {
+    console.log("webhook");
     exec('echo webhook Cheatsheets');
     exec('cd ' + repo + ' && git pull');
+    res.end();
 })
 // 404 route
 app.use((req, res) => {
