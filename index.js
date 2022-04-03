@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
                                         .update(chunk.toString())
                                         .digest('hex');
     
-        if(req.headers['X-Hub-Signature-256'] === signature){
+        if(req.headers['x-hub-signature-256'] === signature){
             console.info("webhook signature checked, now pulling");
             exec('echo webhook Cheatsheets');
             exec('cd ' + repo + ' && git pull');
