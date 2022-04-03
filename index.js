@@ -2,6 +2,8 @@ const express = require('express');
 const marked = require('marked');
 const path = require('path');
 const fs = require('fs');
+const exec = require('child_process').exec;
+const repo = "/var/www/CheatSheets"
 
 // Init app
 const app = express();
@@ -52,6 +54,11 @@ articles.forEach(article => {
         });
     })
 });
+// Webhook CD route
+app.post('/webhook', (req, res) => {
+    exec('echo webhook Cheatsheets');
+    exec('cd ' + repo + ' && git pull');
+})
 // 404 route
 app.use((req, res) => {
     res.status(400).render('404', {'articles': articles});
