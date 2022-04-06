@@ -4,7 +4,7 @@
         <ul class="flex flex-col text-center bg-main bg-opacity-95 z-10 fixed -right-full w-full top-16 md:flex-row md:static" id="menu">
             <% articles.forEach(function(article){ %>
                 <li class="ml-4">
-                    <a href="<%= article.title %>"><%= article.title %></a>
+                    <a href="/articles/<%= article.title %>"><%= article.title %></a>
                 </li>
             <% }) %>
         </ul>
