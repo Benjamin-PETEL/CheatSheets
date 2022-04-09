@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const exec = require('child_process').exec;
-const repo = "/var/www/CheatSheets";
+const repo = process.env.REPO;
 const crypto = require('crypto');
 
 router.post('/webhook', (req, res) => {

@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 const marked = require('marked');
+const articleMountPoint = '/articles';
 
 // TEMP
 const articles = [
@@ -38,4 +39,4 @@ articles.forEach(article => {
     })
 });
 
-module.exports = {router, articles};
+module.exports = {router, articles, articleMountPoint};
