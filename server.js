@@ -19,7 +19,8 @@ app.get('/', (req, res) => {
 });
 // Articles route
 const articlesRouter = require('./articles/articles').router;
-app.use('/articles', articlesRouter);
+const articleMountPoint = require('./articles/articles').articleMountPoint;
+app.use(articleMountPoint, articlesRouter);
 
 // Webhook CD route
 const webhookRouter = require('./webhook/webhook');

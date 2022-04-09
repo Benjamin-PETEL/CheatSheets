@@ -26,7 +26,6 @@ describe('Test serve endpoints', () => {
                 if(err){
                     return done(err);
                 }
-                console.log(res);
                 expect(res.text).toContain('id="navbar"');
                 expect(res.text).toContain('id="footer"');
                 done();
