@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon",
-    "build:css": "postcss public/style/tailwind.css -o public/style/style.css",
+    "build:dev": "rm public/style/style.css && postcss resources/tailwind.css -o public/style/style.css",
     "prod": "NODE_ENV=production postcss public/style/tailwind.css -o public/style/style.css"
   },
   "repository": {

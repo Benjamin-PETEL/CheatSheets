@@ -22,9 +22,6 @@ const articlesRouter = require('./articles/articles').router;
 const articleMountPoint = require('./articles/articles').articleMountPoint;
 app.use(articleMountPoint, articlesRouter);
 
-// Webhook CD route
-const webhookRouter = require('./webhook/webhook');
-app.use('/webhook', webhookRouter);
 // 404 route
 app.use((req, res) => {
     res.status(400).render('404', {'articles': articles});

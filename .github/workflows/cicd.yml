@@ -1,0 +1,50 @@
+name: CI/CD
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Dev CSS
+      run: npm run build:dev
+      
+    - name: Tests
+      run: npm test
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    environment: deploy
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Create environment variables
+      env:
+        PORT: ${{ secrets.PORT }}
+      run: echo "PORT=$PORT" > .env
+
+    - name: Restart project
+      run: pm2 restart Cheatsheets
