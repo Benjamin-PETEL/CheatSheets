@@ -74,12 +74,12 @@ function applyStyle(){
 
     // OL
     ols.forEach(ol => {
-        ol.classList.add("list-inside", "list-decimal", "ml-4");
+        ol.classList.add("list-inside", "list-decimal", "ml-4", "mb-2");
     });
 
     // UL
     uls.forEach(ul => {
-        ul.classList.add("list-inside", "list-disc", "ml-4");
+        ul.classList.add("list-inside", "list-disc", "ml-4", "mb-2");
     });
 
     // IMG
