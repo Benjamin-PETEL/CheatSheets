@@ -6,9 +6,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
@@ -20,6 +18,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
-    - run: npm run build --if-present
-    - run: npm test
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build Dev CSS
+      run: npm run build:dev
+      
+    - name: Tests
+      run: npm test
