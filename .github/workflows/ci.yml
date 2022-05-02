@@ -24,6 +24,9 @@ jobs:
 
     - name: Build Dev CSS
       run: npm run build:dev
+
+    - name: Lint
+      run: npx eslint './**'
       
     - name: Tests
       run: npm test

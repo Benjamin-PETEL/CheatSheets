@@ -8,35 +8,35 @@ const articleMountPoint = '/articles';
 // TEMP
 const articles = [
     {
-        'title': 'Git',
-        'location': '/git.md'
+        title: 'Git',
+        location: '/git.md'
     },
     {
-        'title': 'PHP',
-        'location': '/php.md'
+        title: 'PHP',
+        location: '/php.md'
     },
     {
-        'title': 'Node',
-        'location': '/node.md'
+        title: 'Node',
+        location: '/node.md'
     },
     {
-        'title': 'about',
-        'location': '/about.md'
+        title: 'about',
+        location: '/about.md'
     }
 ];
 
 articles.forEach(article => {
-    router.get('/'+article.title, (req, res) => {
+    router.get('/' + article.title, (req, res) => {
         const stream = fs.createReadStream(path.join(__dirname, article.location), 'utf8');
         stream.on('error', (error) => {
             console.log(error);
             res.redirect('/');
         });
         stream.on('data', (data) => {
-            article.content = marked.parse(data, {'headerIds':false });
-            res.render('article', {'article': article, 'articles': articles});
+            article.content = marked.parse(data, { headerIds: false });
+            res.render('article', { article, articles });
         });
-    })
+    });
 });
 
-module.exports = {router, articles, articleMountPoint};
+module.exports = { router, articles, articleMountPoint };
