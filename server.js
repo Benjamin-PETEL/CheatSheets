@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const articles = require('./articles/articles.js').articles;
 // Home route
 app.get('/', (req, res) => {
-    res.render('index', {articles: articles});
+    res.render('index', { articles });
 });
 // Articles route
 const articlesRouter = require('./articles/articles').router;
@@ -24,7 +24,7 @@ app.use(articleMountPoint, articlesRouter);
 
 // 404 route
 app.use((req, res) => {
-    res.status(400).render('404', {'articles': articles});
+    res.status(400).render('404', { articles });
 });
 
 module.exports = app;

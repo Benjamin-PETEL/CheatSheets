@@ -8,7 +8,7 @@ describe('Test serve endpoints', () => {
             .expect('Content-Type', /html/)
             .expect(200)
             .end((err, res) => {
-                if (err){
+                if (err) {
                     return done(err);
                 }
                 expect(res.text).toContain('id="navbar"');
@@ -17,13 +17,13 @@ describe('Test serve endpoints', () => {
             });
     });
 
-    test('404 redirect', (done) =>{
+    test('404 redirect', (done) => {
         request(server)
             .get('/wrong-page')
             .expect(400)
             .expect('Content-Type', /html/)
             .end((err, res) => {
-                if(err){
+                if (err) {
                     return done(err);
                 }
                 expect(res.text).toContain('id="navbar"');
